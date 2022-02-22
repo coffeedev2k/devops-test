@@ -1,9 +1,10 @@
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 # Introduction
 
-Looking for an experienced DevOps System Engineer is a challengable task, 
+Looking for an experienced DevOps System Engineer is a challengable task,
 because it is usually very difficult to estimate all aspects of person's knowledge.
 
-Technical interview can reveal some strong and weak sides of a candidate, 
+Technical interview can reveal some strong and weak sides of a candidate,
 but sometimes it leaves opened some questions about real experience.
 And if we are talking about real routin tasks - it's not only about knowledge,
 but also about skills to perform different kind of tasks using manuals, docs and even Google.
@@ -21,17 +22,17 @@ How it should look: [Running Demo][demo].
 
 All files you need - are in this GitHub repository. Just clone it from [GitHub][github-repository].
 
-This app is written on Python and is pretty simple. 
-Why Python? In my own opinion, this is preferred language which any Linux engineer should know. 
+This app is written on Python and is pretty simple.
+Why Python? In my own opinion, this is preferred language which any Linux engineer should know.
 But this task is not about programming, so if you don't know Python and are skilled in Bash - It's ok.
 
 Requirements:
 
 - Python `3.6` (any other `3.x` should work too)
 - PostgreSQL server
-- Packages listed in `requirements.txt` 
+- Packages listed in `requirements.txt`
 
-All this App does - counts unique visitors and shows this statistic. All it needs is a running database. 
+All this App does - counts unique visitors and shows this statistic. All it needs is a running database.
 
 So, this app has some endpoints:
 
@@ -70,17 +71,17 @@ As any Docker-ready application - It can be easily configured via environment va
 
 # Task
 
-So, now we can talk about the goals. 
+So, now we can talk about the goals.
 I'm writing just roadmap and any step is optional, but will give additional points if is done correctly.
-If you are good in docs - spend more time on writing good documentation, 
+If you are good in docs - spend more time on writing good documentation,
 if you have good experience in clouds - write scalable, fault-tolerant and cloud-ready solution.
 Feel free to choose your way and show your best.
 
-Ideal solution should be fulfilled as a git repository, which will contain all Infrastructure-related code ([IaC]), scenarios, diagrams and documentation as a main `README.md` file. 
+Ideal solution should be fulfilled as a git repository, which will contain all Infrastructure-related code ([IaC]), scenarios, diagrams and documentation as a main `README.md` file.
 
 ## Infrastructure
 
-I think the best option for this is [Terraform]. But you can also use [Ansible] or [Chef], or any tool you want. 
+I think the best option for this is [Terraform]. But you can also use [Ansible] or [Chef], or any tool you want.
 It will be great, if your solution can be used from the box to start whole stack on AWS.
 
 - [ ] Start all related servers/instances/logical units
@@ -89,7 +90,7 @@ It will be great, if your solution can be used from the box to start whole stack
 
 ## Containerisation
 
-`Dockerfile` - should be included, but it isn't, because developer of the app was too lazy for this task... 
+`Dockerfile` - should be included, but it isn't, because developer of the app was too lazy for this task...
 So, it will be first step to build container with this app - writing `Dockerfile` and making first `docker build .`.
 
 - [ ] Choose right base image
@@ -97,7 +98,7 @@ So, it will be first step to build container with this app - writing `Dockerfile
 - [ ] Make this app run and listen on HTTP interface
 - [ ] Prepare `docker-compose.yml` for whole app stack, which can be used by developers
 
-## Analysis 
+## Analysis
 
 All tools you need for this section are in `requirements.test.txt` file,
 which can be easily used with `pip install -r requirements.test.txt`.
@@ -110,12 +111,12 @@ which can be easily used with `pip install -r requirements.test.txt`.
 - [ ] Tests<br/>
     There are no so many tests, but you can run them with `pytest .` and get successful results
 - [ ] Code coverage<br/>
-    Checkout Python [Coverage] project, 
-    or, you can get integration with [CodeCov] or [Coveralls] - they are free for open-source repositories.   
+    Checkout Python [Coverage] project,
+    or, you can get integration with [CodeCov] or [Coveralls] - they are free for open-source repositories.
 
 ## CI/CD
 
-At this stage you already have project, that can be built and verified for some kind of issues. 
+At this stage you already have project, that can be built and verified for some kind of issues.
 It's time to automate it.
 
 Choose one of CI/CD you like:
@@ -126,7 +127,7 @@ Choose one of CI/CD you like:
     You can also pass this stage using [BitBucket Pipelines][bitbucket-pipelines].
     Just implement build step and deployment somewhere - from AWS to K8s.
 - [ ] Jenkins<br/>
-    Most complex but more powerfull than others (IMHO). 
+    Most complex but more powerfull than others (IMHO).
     If you choose it - you need to write working `Jenkinsfile` to achieve the goal.
     I recommend to use scripted, not declarative pipeline - it would be much better to show your experience.
     Documentation about Jenkins Pipelines is avaiable [here][jenkins-pipelines].
@@ -138,10 +139,10 @@ And of course don't forget about:
 - [ ] Versioning<br/>
     Current project version can be seen in file `version.txt` and it will be shown as version on web-page.
     What about adding build number to this version and auto-increment it on each build?
-    
+
 ## Monitoring
 
-Just prepare some examples, how this app could be monitored. 
+Just prepare some examples, how this app could be monitored.
 Docker Healthchecks or rules on AWS Route53 - anything will be accepted as solution.
 
 ## Documentation
