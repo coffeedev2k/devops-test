@@ -74,3 +74,12 @@ repos:
     hooks:
       - id: flake8
         args: [--config-file setup.cfg]
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        description: This hook pytest
+        language: system
+        entry: pytest
+        pass_filenames: false
