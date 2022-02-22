@@ -82,4 +82,5 @@ repos:
         description: This hook pytest
         language: system
         entry: pytest
+        verbose: true #(optional) if true, forces the output of the hook to be printed even when the hook passes. new in 1.6.0.
         pass_filenames: false
