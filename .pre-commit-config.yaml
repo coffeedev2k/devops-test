@@ -16,3 +16,24 @@ repos:
     rev: v2.3.0
     hooks:
       - id: check-yaml
+
+  - repo: https://github.com/IamTheFij/docker-pre-commit
+    rev: v2.0.1
+    hooks:
+      - id: docker-compose-check
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.64.0
+    hooks:
+      - id: infracost_breakdown #- Check terraform infrastructure cost
+      - id: terraform_fmt #- Rewrites all Terraform configuration files to a canonical format.
+      - id: terraform_docs #- Inserts input and output documentation into README.md (using terraform-docs).
+      - id: terraform_docs_without_aggregate_type_defaults #- Inserts input and output documentation into README.md (using terraform-docs). Identical to terraform_docs.
+      - id: terraform_docs_replace #- Overwrite content of README.md with terraform-docs.
+      - id: terraform_validate #- Validates all Terraform configuration files.
+      - id: terraform_providers_lock #- Updates provider signatures in dependency lock files.
+      - id: terraform_tflint #- Validates all Terraform configuration files with TFLint.
+      - id: terragrunt_fmt #- Rewrites all Terragrunt configuration files to a canonical format.
+      - id: terragrunt_validate #- Validates all Terragrunt configuration files.
+      - id: checkov #- Runs checkov on Terraform templates.
+      - id: terrascan #- Runs terrascan on Terraform templates.
