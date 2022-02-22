@@ -77,11 +77,23 @@ repos:
 
   - repo: local
     hooks:
-      - id: pytest
+      - id: pytest # this hook run only bu hands by command:  pre-commit run --hook-stage manual pytest
         name: pytest
         description: This hook pytest
         language: system
         entry: pytest
+        always_run: true #(optional: default false) if true this hook will run even if there are no matching files.
+        verbose: true #(optional) if true, forces the output of the hook to be printed even when the hook passes. new in 1.6.0.
+        stages: [manual] #(optional: default (all stages)) confines the hook to the commit, merge-commit, push, prepare-commit-msg, commit-msg, post-checkout, post-commit, post-merge, post-rewrite, or manual stage.
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: coverage # this hook run only bu hands by command:  pre-commit run --hook-stage manual coverage
+        name: coverage
+        description: This hook coverage
+        language: system
+        entry: coverage run -m pytest
         always_run: true #(optional: default false) if true this hook will run even if there are no matching files.
         verbose: true #(optional) if true, forces the output of the hook to be printed even when the hook passes. new in 1.6.0.
         stages: [manual] #(optional: default (all stages)) confines the hook to the commit, merge-commit, push, prepare-commit-msg, commit-msg, post-checkout, post-commit, post-merge, post-rewrite, or manual stage.
