@@ -1,0 +1,21 @@
+ARG POSTGRES_MAJOR_VERSION=12
+ARG POSTGRES_MINOR_VERSION=3
+ARG POSTGRES_SHA256=9ba6355d27ba9cd0acda1e28afaae4a5b7b2301bbbdc91794dcfca95ab08d2ef
+
+FROM postgres:${POSTGRES_MAJOR_VERSION}.${POSTGRES_MINOR_VERSION}@sha256:${POSTGRES_SHA256}
+
+# double POSTGRES_MAJOR_VERSION because ARG works only one stage of build
+ARG POSTGRES_MAJOR_VERSION=12
+
+
+
+EXPOSE 5432
+
+# user NON_FATAL_ONLY_HEALTHCHECK here because postgresql write to log FATAL errors
+HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD pg_isready -h localhost -U NON_FATAL_ONLY_HEALTHCHECK -p 5432
+
+CMD ["-c", "max_connections=400", "-c", "log_min_duration_statement=10s", "-c", "statement_timeout=10min"]
+
+
+# run it as docker run --rm -it --name timescale -v /opt/qodex_postgres/data:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_PASSWORD=qwe1 -e POSTGRES_DB=qwe1 -e POSTGRES_USER=qwe1 -e POSTGRES_INITDB_ARGS="--encoding=UTF8"  timescale:latest
+# for creating base qwe1 user qwe1 and pass qwe1
