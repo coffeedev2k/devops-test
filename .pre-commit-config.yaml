@@ -83,5 +83,5 @@ repos:
         language: system
         entry: pytest
         verbose: true #(optional) if true, forces the output of the hook to be printed even when the hook passes. new in 1.6.0.
-        pass_filenames: false
         stages: [manual] #(optional: default (all stages)) confines the hook to the commit, merge-commit, push, prepare-commit-msg, commit-msg, post-checkout, post-commit, post-merge, post-rewrite, or manual stage.
+        pass_filenames: false
